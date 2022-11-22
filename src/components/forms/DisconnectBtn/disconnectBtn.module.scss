@@ -1,0 +1,14 @@
+.userInfo {
+    align-items: center;
+    background: var(--TSbgSecondaryColor);
+    border: 1px solid var(--TSprimaryColor);
+    border-radius: 4px;
+    display: flex;
+    padding: 8px;
+}
+
+.disconnectBtn {
+    cursor: pointer;
+    display: flex;
+    margin-left: 8px;
+}

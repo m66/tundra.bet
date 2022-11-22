@@ -21,7 +21,7 @@ const GameItem: React.FC<GameItemProps> = ({ gameData }) => {
       to={gameData.url}
       className={`${styles.gameItem} ${
         gameData.isDisable && styles.disabledLink
-      }`}
+      } col`}
     >
       <img src={gameData.imgUrl} alt={gameData.title} />
     </Link>
