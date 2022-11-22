@@ -1,0 +1,50 @@
+:root {
+    --TSbgColor: #0b0a20;
+    --TSbgSecondaryColor: #121c33;
+    --TSprimaryColor: #27b4e3;
+    --TStextColor: #fff;
+    --TStextColor2: #bebebe;
+    --TSsecondaryTextColor: #8d8d9b;
+    --TSprimaryGradient1: #34f3ff;
+    --TSprimaryGradient2: #2194d5;
+    --TSsecondaryGradient1: #7dbee9;
+    --TSsecondaryGradient2: #467899;
+    --TSgreenColor: #6ccf59;
+    --RedColor: #ff4d4d;
+    --TSborderGradientColor: #7a869d;
+    --TSboxBorderColor: #5fe0ff;
+    --TSboxBorderColor2: rgba(95, 224, 255, .3);
+    --TSboxBgColor: #192a31;
+    --TSboxBGColor2: #191d31;
+    --TSboxRadialBgColor: rgba(189, 255, 243, .3);
+    --TSPopupShadowColor: rgba(52, 242, 255, .35);
+    --TSRouletteBgColor: #363278;
+}
+
+button {
+    border: none;
+    display: inline-block;
+}
+
+.ts-primary-button {
+    background: linear-gradient(180deg,var(--TSprimaryGradient1) 0,var(--TSprimaryGradient2) 100%);
+    box-shadow: 0 0 30px rgb(156 207 240 / 40%);
+}
+
+.ts-button {
+    border-radius: 4px;
+    color: var(--TStextColor);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 10px 24px;
+    text-align: center;
+    transition: all .3s ease;
+}
+
+.large {
+    font-size: 18px;
+    line-height: 21px;
+}

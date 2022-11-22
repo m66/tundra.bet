@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import { Routes, Route } from "react-router-dom";
+
+import MineSweeper from './Pages/GamePages/MineSweeper/MineSweeper';
+import LuckyWheel from './Pages/GamePages/LuckyWheel/LuckyWheel';
+import Blackjack from './Pages/GamePages/Blackjack/Blackjack';
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
+import Coinflip from './Pages/GamePages/Coinflip/Coinflip';
+import Crash from './Pages/GamePages/Crash/Crash';
+import HomePage from './Pages/HomePage/HomePage';
+import Dice from './Pages/GamePages/Dice/Dice';
+import RPS from './Pages/GamePages/RPS/RPS';
+
+import './assets/styles/reset.scss';
+import './assets/styles/global.scss';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/'>
+          <Route path='/' element={<HomePage />}/>
+          <Route path='/flip' element={<Coinflip />}/>
+          <Route path='/crash' element={<Crash />}/>
+          <Route path='/dice' element={<Dice />}/>
+          <Route path='/wheel' element={<LuckyWheel />}/>
+          <Route path='/blackjack' element={<Blackjack />}/>
+          <Route path='/rock' element={<RPS />}/>
+          <Route path='/mine' element={<MineSweeper />}/>
+          <Route path='/flip' element={<Coinflip />}/>
+        </Route>
+        <Route path='*' element={<NotFoundPage />} />
+      </Routes>
     </div>
   );
 }

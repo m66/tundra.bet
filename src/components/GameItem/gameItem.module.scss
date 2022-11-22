@@ -1,0 +1,14 @@
+.gameItem {
+    // flex-basis: calc(33.3% - 10px);
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.disabledLink {
+    pointer-events: none;
+}
