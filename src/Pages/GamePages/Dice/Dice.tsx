@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import DisplayGameResult from "../../../components/ui/DisplayGameResult/DisplayGameResult";
 import RecentPlayers from "../../../components/ui/RecentPlayers/RecentPlayers";
@@ -15,6 +15,11 @@ const Dice = () => {
 
   const [resultGame, setResultGame] = useState({ state: "", ammount: "" });
   const [showResult, setShowResult] = useState(false);
+  const childRef: any = useRef(null);
+
+  const handleClick = () => {
+    childRef?.current.diceRoll();
+  };
 
   return (
     <div className={styles.dice}>
@@ -23,6 +28,7 @@ const Dice = () => {
           <div className={styles.diceItem}>
             {/* <img src="https://tundra.bet/assets/images/Dice1.svg" alt="dice-1" /> */}
             <DicePiece
+              ref={childRef}
               setResultGame={setResultGame}
               diceChoice={diceChoice}
               diceBetData={diceBetData}
@@ -32,6 +38,7 @@ const Dice = () => {
         </div>
         <button
           className={`ts-button ts-primary-button large ${styles.diceBtn}`}
+          onClick={handleClick}
         >
           ROLL DICE
         </button>

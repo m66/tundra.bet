@@ -1,3 +1,5 @@
+import { forwardRef, useImperativeHandle  } from 'react';
+
 import "./dicePiece.scss";
 
 interface Props {
@@ -5,36 +7,40 @@ interface Props {
   diceChoice: string;
   diceBetData: string;
   setShowResult: React.Dispatch<React.SetStateAction<boolean>>;
+  ref: any
 }
 
-const DicePiece: React.FC<Props> = ({
+const DicePiece: React.FC<Props> = forwardRef(({
   setResultGame,
   diceChoice,
   diceBetData,
-  setShowResult,
-}) => {
-  function diceRoll() {
-    const roll = Math.floor(Math.random() * 6 + 1);
-    const oddEven = roll % 2 === 0 ? "even" : "odd";
-    const dice: Element | null = document.querySelector(".dice");
-    dice?.removeAttribute("class");
-    dice?.setAttribute("class", "dice");
-    setTimeout(function () {
-      dice?.classList.add("roll-" + roll);
-      setTimeout(() => {
-        let resultG =
-          diceChoice === oddEven
-            ? { state: "win", ammount: String(Number(diceBetData) * 1.5) }
-            : { state: "lost", ammount: "0" };
+  setShowResult
+}, ref) => {
+  useImperativeHandle(ref, () => ({
+    diceRoll() {
+      const roll = Math.floor(Math.random() * 6 + 1);
+      const oddEven = roll % 2 === 0 ? "even" : "odd";
+      const dice: Element | null = document.querySelector(".dice");
+      dice?.removeAttribute("class");
+      dice?.setAttribute("class", "dice");
+      setTimeout(function () {
+        dice?.classList.add("roll-" + roll);
+        setTimeout(() => {
+          let resultG =
+            diceChoice === oddEven
+              ? { state: "win", ammount: String(Number(diceBetData) * 1.5) }
+              : { state: "lost", ammount: "0" };
+  
+          setResultGame(resultG);
+          setShowResult(true);
+        }, 2600);
+      }, 1);
+    }
 
-        setResultGame(resultG);
-        setShowResult(true);
-      }, 3000);
-    }, 1);
-  }
+  }))
 
   return (
-    <div className="containerD" onClick={diceRoll}>
+    <div className="containerD">
       <div className="dice">
         <div className="one">
           <span></span>
@@ -72,6 +78,6 @@ const DicePiece: React.FC<Props> = ({
       </div>
     </div>
   );
-};
+});
 
 export default DicePiece;

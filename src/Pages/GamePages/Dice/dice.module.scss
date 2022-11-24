@@ -69,3 +69,21 @@
     margin: 82px auto auto;
     width: 260px;
 }
+
+@media (max-width: 992px) {
+    .dice {
+        flex-direction: column;
+    }
+
+    .diceBox {
+        margin-bottom: 40px;
+    }
+
+    .diceItemBox {
+        margin: 0 auto;
+    }
+
+    .optionsBox {
+        margin: 0 auto;
+    }
+}
