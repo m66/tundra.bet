@@ -2,7 +2,7 @@ import React from 'react'
 
 const LuckyWheel = () => {
   return (
-    <div>LuckyWheel</div>
+    <div className='defaultGamePage'>LuckyWheel</div>
   )
 }
 

@@ -19,7 +19,7 @@
     --TSboxRadialBgColor: rgba(189, 255, 243, .3);
     --TSPopupShadowColor: rgba(52, 242, 255, .35);
     --TSRouletteBgColor: #363278;
-
+    --TSScrollBgColor: #555;
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
 }
@@ -50,4 +50,21 @@ button {
 .large {
     font-size: 18px;
     line-height: 21px;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.backDrop {
+    align-items: center;
+    background-color: rgba(0,0,0,.5);
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
 }

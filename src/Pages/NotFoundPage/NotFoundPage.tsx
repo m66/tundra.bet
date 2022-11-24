@@ -2,7 +2,7 @@ import React from 'react'
 
 const NotFoundPage:React.FC = () => {
   return (
-    <h1>Page Not Found</h1>
+    <div  className='defaultGamePage'>Page Not Found</div>
   )
 }
 

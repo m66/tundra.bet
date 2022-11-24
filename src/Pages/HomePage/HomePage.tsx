@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 
 import ConectWalletModal from "../../Shared/Modals/ConnectWalletModal/ConectWalletModal";
-import GameItem from "../../components/GameItem/GameItem";
-import Header from "../../components/Header/Header";
+import Header from "../../components/ui/Header/Header";
 
-import { games } from "../../constants/const";
 import styles from "./homePage.module.scss";
+import { Outlet } from "react-router-dom";
 
 const HomePage: React.FC = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [userAccount, setUserAccount] = useState(null);
 
-  const openModal = () => {
+  function openModal(): void {
     setIsOpenModal(true);
-  };
+  }
 
-  const closeModal = () => {
+  function closeModal(): void {
     setIsOpenModal(false);
-  };  
+  }
 
   return (
     <div className={styles.homePage}>
@@ -26,17 +25,8 @@ const HomePage: React.FC = () => {
         userAccount={userAccount}
         setUserAccount={setUserAccount}
       />
-      <div className={`container ${styles.gamesWrapper}`}>
-        <div className={`${styles.primaryGames} row`}>
-          {games.primaryGames.map((gameData) => (
-            <GameItem gameData={gameData} key={gameData.title} />
-          ))}
-        </div>
-        <div className="row">
-          {games.secondaryGames.map((gameData) => (
-            <GameItem gameData={gameData} key={gameData.title} />
-          ))}
-        </div>
+      <div className="content">
+        <Outlet />
       </div>
       {isOpenModal && (
         <ConectWalletModal

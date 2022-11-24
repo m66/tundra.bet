@@ -1,13 +1,13 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-import ConnectButton from "../forms/ConnectButton/ConnectButton";
-import DisconnectBtn from "../forms/DisconnectBtn/DisconnectBtn";
+import ConnectButton from "../../forms/ConnectButton/ConnectButton";
+import DisconnectBtn from "../../forms/DisconnectBtn/DisconnectBtn";
 
 import styles from "./header.module.scss";
 
 interface Props {
-  openModal: () => any;
+  openModal: () => void;
   userAccount: any;
   setUserAccount: React.Dispatch<React.SetStateAction<null>>;
 }
@@ -17,7 +17,6 @@ const Header: React.FC<Props> = ({
   userAccount,
   setUserAccount,
 }) => {
-
   const disconnectHandler = async () => {
     userAccount.walletType === "martial"
       ? await window.martian.disconnect()

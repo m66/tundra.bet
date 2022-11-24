@@ -1,0 +1,33 @@
+.playItem {
+    align-items: center;
+    color: var(--TStextColor);
+    display: flex;
+    font-size: 10px;
+    padding: 10px 0;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid hsla(234,8%,50%,.2);
+    }
+}
+
+.address {
+    color: var(--TSprimaryColor);
+    font-weight: 700;
+    margin-left: 0;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.playItemColumn {
+    margin: 0 4px;
+}
+
+.amount {
+    color: var(--TSprimaryColor);
+    font-weight: 700;
+}
+
+.playItemColumnDate {
+    flex: 1 1;
+    text-align: right;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 
 const MineSweeper = () => {
   return (
-    <div>MineSweeper</div>
+    <div className='defaultGamePage'>MineSweeper</div>
   )
 }
 

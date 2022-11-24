@@ -4,7 +4,7 @@ import styles from "./disconnectBtn.module.scss";
 
 interface Props {
   userAccount: any;
-  disconnectHandler: () => any;
+  disconnectHandler: () => void;
   setUserAccount: React.Dispatch<React.SetStateAction<null>>;
 }
 
@@ -13,7 +13,6 @@ const DisconnectBtn: React.FC<Props> = ({
   disconnectHandler,
   setUserAccount,
 }) => {
-
   let userAccountTitle = null;
   if (userAccount && userAccount.walletType === "martial") {
     userAccountTitle =

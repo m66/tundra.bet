@@ -1,0 +1,11 @@
+.gameItem img {
+    width: 100%;
+}
+
+.disabledLink {
+    pointer-events: none;
+
+    img {
+        filter: grayscale(1);
+    }
+}

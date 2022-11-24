@@ -46,16 +46,59 @@
   flex: 1 0 0%;
 }
 
+.defaultGamePage {
+  color: #c6c6c6;
+  font-size: 48px;
+  font-weight: bold;
+  height: calc(100vh - 152px);;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-@media (min-width: 576px) {
+.content {
+  flex: 1 1;
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 0 16px;
+  position: relative;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+
+  &-track {
+    background-color: var(--TSbgColor);
+  }
+
+  &-thumb {
+    background: var(--TSScrollBgColor);
+    border-radius: 4px;
+
+    &:hover {
+      background: linear-gradient(180deg, var(--TSprimaryGradient1) 0, var(--TSprimaryGradient2) 100%);
+    }
+  }
+}
+
+@media (max-width: 576px) {
     .container {
-        max-width: 540px;
+        // max-width: 540px;
+    }
+
+    .row {
+      flex-direction: column;
+
+      a {
+        margin-bottom: 20px;
+      }
     }
 }
 
 @media (min-width: 768px) {
     .container {
-        max-width: 720px;
+        // max-width: 720px;
     }
 }
 

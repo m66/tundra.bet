@@ -1,0 +1,17 @@
+.recentPlays {
+    display: block;
+    margin-top: 30px;
+}
+
+.recentPlaysTitle {
+    color: var(--TStextColor);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.recentPlaysTable {
+    background: linear-gradient(180deg, rgba(0, 0, 0, .4), transparent);
+    border-radius: 4px;
+    padding: 5px 10px;
+}
