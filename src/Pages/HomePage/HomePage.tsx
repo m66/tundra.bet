@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 import ConectWalletModal from "../../Shared/Modals/ConnectWalletModal/ConectWalletModal";
 import Header from "../../components/ui/Header/Header";
 
+import '../GamePages/styles/gamesGlobalStyle.scss'
 import styles from "./homePage.module.scss";
-import { Outlet } from "react-router-dom";
 
 const HomePage: React.FC = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);

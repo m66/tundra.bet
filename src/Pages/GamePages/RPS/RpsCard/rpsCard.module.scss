@@ -1,0 +1,72 @@
+.rpsCardBox {
+    background: var(--TSboxBgColor);
+    border-radius: 14.4px;
+    display: flex;
+    height: 252px;
+    overflow: hidden;
+    width: 180px;
+}
+
+.default {
+    background: var(--TSboxBGColor2);
+
+    .rpsCard {
+        -webkit-filter: none;
+        filter: none;
+
+        &::before{
+            background: radial-gradient(50% 50% at 50% 50%,rgba(50,232,250,.6) 0,rgba(50,232,250,0) 100%);
+        }
+
+        svg {
+            -webkit-filter: none;
+            filter: none;
+        }
+    }
+}
+
+.rpsCard {
+    height: 228px;
+    width: 156px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--TSboxBorderColor);
+    border-radius: 8px;
+    box-shadow: inset 0 0 4px var(--TSboxBorderColor);
+    -webkit-filter: drop-shadow(0 0 10px var(--TSboxBorderColor)) drop-shadow(0 0 20px var(--TSboxBorderColor2));
+    filter: drop-shadow(0 0 10px var(--TSboxBorderColor)) drop-shadow(0 0 20px var(--TSboxBorderColor2));
+
+    &::before {
+        content: "";
+        height: 196px;
+        width: 196px;
+        margin: auto;
+        position: absolute;
+        background: radial-gradient(50% 50% at 50% 50%,var(--TSboxRadialBgColor) 0,transparent 100%);
+        -webkit-filter: blur(45px);
+        filter: blur(45px);
+    }
+
+    .svg {
+        width: 60px;
+        height: 60px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        svg {
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    span {
+        bottom: 40px;
+        font-size: 19px;
+        font-weight: 700;
+        position: absolute;
+    }
+}

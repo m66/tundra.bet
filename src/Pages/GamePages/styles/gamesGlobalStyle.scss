@@ -1,0 +1,65 @@
+.game-section {
+    display: flex;
+    justify-content: center;
+}
+
+.options-box {
+    margin-left: 60px;
+    max-width: 100%;
+    width: 498px;
+}
+
+.with-border {
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+
+    &::before {
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,.7),hsla(0,0%,100%,0));
+        background-position: 0 0,100% 0,100% 100%,0 100%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -2;
+    }
+
+    &::after {
+        background: inherit;
+        border-radius: inherit;
+        content: "";
+        height: calc(100% - 2px);
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        width: calc(100% - 2px);
+        z-index: -1;
+    }
+}
+
+@media (max-width: 992px) {
+    .game-section {
+        flex-direction: column;
+        align-items: center;
+
+        &>div {
+            margin-bottom: 40px;
+        }
+
+        &>div:last-child {
+            margin: 0 auto;
+        }
+    }
+
+    // .diceItemBox {
+    //     margin: 0 auto;
+    // }
+
+    // .optionsBox {
+    //     margin: 0 auto;
+    // }
+}

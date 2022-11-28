@@ -1,0 +1,174 @@
+.rpsBox {
+    max-width: 100%;
+    width: 498px;
+}
+
+.cardBoxWrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.cardWrapper {
+    position: relative;
+
+    &>div:not(:last-child) {
+        position: absolute;
+    }
+
+    &>div:not(:first-child) {
+        opacity: 0;
+    }
+}
+
+.cardAnimate {
+    &>div:first-child {
+        animation: defoultHide .3s forwards;
+    }
+
+    &>div:nth-child(2) {
+        animation: rpsBlink .4s .3s forwards;
+    }
+
+    &>div:nth-child(3) {
+        animation: rpsBlink .5s .7s forwards;
+    }
+
+    &>div:nth-child(4) {
+        animation: rpsBlink .6s 1.2s forwards;
+    }
+
+    &>div:nth-child(5) {
+        animation: resultCard .8s 1.8s forwards;
+    }
+}
+
+
+.rpsCardBox {
+    background: var(--TSboxBgColor);
+    border-radius: 14.4px;
+    display: flex;
+    height: 252px;
+    overflow: hidden;
+    width: 180px;
+}
+
+.default {
+    background: var(--TSboxBGColor2);
+
+    .rpsCard {
+        -webkit-filter: none;
+        filter: none;
+
+        &::before {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(50, 232, 250, .6) 0, rgba(50, 232, 250, 0) 100%);
+        }
+
+        svg {
+            -webkit-filter: none;
+            filter: none;
+        }
+    }
+}
+
+.rpsCard {
+    align-items: center;
+    border: 3px solid var(--TSboxBorderColor);
+    border-radius: 8px;
+    box-shadow: inset 0 0 4px var(--TSboxBorderColor);
+    display: flex;
+    -webkit-filter: drop-shadow(0 0 10px var(--TSboxBorderColor)) drop-shadow(0 0 20px var(--TSboxBorderColor2));
+    filter: drop-shadow(0 0 10px var(--TSboxBorderColor)) drop-shadow(0 0 20px var(--TSboxBorderColor2));
+    height: 228px;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+    width: 156px;
+
+    &::before {
+        background: radial-gradient(50% 50% at 50% 50%, var(--TSboxRadialBgColor) 0, transparent 100%);
+        content: "";
+        -webkit-filter: blur(45px);
+        filter: blur(45px);
+        height: 196px;
+        margin: auto;
+        position: absolute;
+        width: 196px;
+    }
+
+    .svg {
+        display: flex;
+        height: 60px;
+        justify-content: center;
+        position: relative;
+        width: 60px;
+    }
+
+    span {
+        bottom: 40px;
+        font-size: 19px;
+        font-weight: 700;
+        position: absolute;
+    }
+}
+
+.rpsPlayBtn {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    margin: 82px auto auto;
+    width: 260px;
+}
+
+@keyframes defoultHide {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes rpsBlink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes resultCard {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 992px) {
+    .dice {
+        flex-direction: column;
+    }
+
+    .diceBox {
+        margin-bottom: 40px;
+    }
+
+    .diceItemBox {
+        margin: 0 auto;
+    }
+
+    .optionsBox {
+        margin: 0 auto;
+    }
+}

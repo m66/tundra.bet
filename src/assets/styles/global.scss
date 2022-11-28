@@ -20,6 +20,7 @@
     --TSPopupShadowColor: rgba(52, 242, 255, .35);
     --TSRouletteBgColor: #363278;
     --TSScrollBgColor: #555;
+    --TSGameDrowResultColor: rgb(204, 89, 36);
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
 }
@@ -67,4 +68,25 @@ button {
     top: 0;
     width: 100%;
     z-index: 9999;
+}
+
+.ts-label {
+    color: var(--TSsecondaryTextColor);
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+
+.ts-input {
+    padding-right: 40px;
+}
+
+.ts-input-icon {
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    width: 20px;
 }

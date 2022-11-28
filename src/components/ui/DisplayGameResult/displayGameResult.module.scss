@@ -21,3 +21,7 @@
 .lostShadow {
     text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px var(--RedColor), 0 0 30px var(--RedColor), 0 0 40px var(--RedColor), 0 0 55px var(--RedColor), 0 0 75px var(--RedColor);
 }
+
+.drawShadow {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px var(--TSGameDrowResultColor), 0 0 30px var(--TSGameDrowResultColor), 0 0 40px var(--TSGameDrowResultColor), 0 0 55px var(--TSGameDrowResultColor), 0 0 75px var(--TSGameDrowResultColor);
+}
