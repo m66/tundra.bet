@@ -98,6 +98,11 @@ export const dice = [
   { id: "8", name: "EVEN", value: "even", type: "diceChoice" },
 ];
 
+export const wheel = [
+  { id: "7", name: "Manual", value: "manual", type: "wheel" },
+  { id: "8", name: "Auto", value: "auto", type: "wheel" },
+];
+
 export const recentPlaysDice = [
   {
     userAddress:
@@ -181,3 +186,15 @@ export const rspCards = [
     cardType: "scissors",
   },
 ];
+
+export const wheelRisk = {
+  label: 'Risk',
+  options: ['Low', 'Medium', 'High']
+}
+
+export const wheelSegments = {
+  label: 'Segments',
+  options: ['8', '16', '24']
+}
+
+export const rouletteBgColors = ['aqua', 'blue', 'brown', 'blueviolet', 'chartreuse', 'chocolate', 'cornflowerblue', 'darkgoldenrod', 'deeppink', 'darkgray', 'mediumpurple', 'mediumspringgreen', 'cadetblue', 'yellow', 'springgreen', 'seagreen', 'tomato', 'olive', 'gold', 'red', 'fuchsia', 'greenyellow', 'saddlebrown', 'salmon']

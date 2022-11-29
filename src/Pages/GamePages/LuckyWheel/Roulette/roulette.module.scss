@@ -1,0 +1,144 @@
+.gameBox {
+    &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-size: 5%;
+        left: 5%;
+        top: 48%;
+        transform: rotate(90deg);
+    }
+}
+
+.rouletteBox {
+    align-items: center;
+    background: rgba(0, 0, 0, .3);
+    border-radius: 50%;
+    display: flex;
+    font-size: 472px;
+    height: 1.10167em;
+    justify-content: center;
+    padding: 0.050847em;
+    position: relative;
+    width: 1.10167em;
+}
+
+.roulette {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    &:hover {
+        transform: rotate(720deg);
+    }
+
+    .segment {
+        border-radius: 50%;
+        height: 1em;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1em;
+
+        &::before {
+            background: var(--TSbgColor);
+            border-radius: 50%;
+            -webkit-clip-path: inherit;
+            clip-path: inherit;
+            content: "";
+            height: 0.9em;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 0.9em;
+        }
+
+        &::after {
+            border-radius: 50%;
+            -webkit-clip-path: inherit;
+            clip-path: inherit;
+            content: "";
+            height: 0.9em;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 0.9em;
+        }
+
+        &:nth-child(odd):after {
+            background: hsla(0, 0%, 100%, .05);
+        }
+
+        .fill {
+            border: 0.05em solid;
+            border-radius: 50%;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+        }
+    }
+}
+
+.rotate {
+    animation: rouletteRotate 5s cubic-bezier(.19,.7,.78,1.04) forwards;
+    animation-fill-mode: forwards;
+}
+
+.caretIcon {
+    position: absolute;
+    top: 0;
+    -webkit-transform: translateY(-30%);
+    transform: translateY(-30%);
+    width: 0.17372em;
+    z-index: 1;
+}
+
+.wheelCenterIcon {
+    position: absolute;
+}
+
+.coefficients {
+    height: 520px;
+    max-height: 100%;
+    overflow: auto;
+
+    .coefficientsItem {
+        align-items: center;
+        border-radius: 4px;
+        box-shadow: 0 5px 20px rgb(0 0 0 / 30%);
+        display: flex;
+        font-weight: 700;
+        height: 40px;
+        justify-content: center;
+        position: relative;
+        width: 100px;
+
+        &:after {
+            box-shadow: -9px 35px 15px 5px rgb(0 0 0 / 30%);
+            content: "";
+            height: 1px;
+            position: absolute;
+            width: 100%;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@keyframes rouletteRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(720deg);
+    }
+}
