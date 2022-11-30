@@ -51,6 +51,7 @@ const RPS = () => {
           radioData={rps}
           radioValue={rpsChoice}
           setRadioValue={setRpsChoice}
+          withBorder={true}
         />
         <div className={styles.cardBoxWrapper}>
           <div className={`${styles.cardWrapper} ${randomCardData.isShow ? styles.cardAnimate : ''}`}>
@@ -88,6 +89,7 @@ const RPS = () => {
           radioData={betData}
           radioValue={betCount}
           setRadioValue={setBetCount}
+          withBorder={true}
         />
         <RecentPlayers recentPlaysData={recentPlaysDice} />
       </div>

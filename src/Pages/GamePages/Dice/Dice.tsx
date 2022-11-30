@@ -48,11 +48,13 @@ const Dice = () => {
           radioData={dice}
           radioValue={diceChoice}
           setRadioValue={setDiceChoice}
+          withBorder={true}
         />
         <OptionalBtn
           radioData={betData}
           radioValue={diceBetData}
           setRadioValue={setDiceBetData}
+          withBorder={true}
         />
         <RecentPlayers recentPlaysData={recentPlaysDice} />
       </div>

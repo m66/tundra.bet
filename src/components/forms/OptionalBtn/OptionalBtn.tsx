@@ -5,11 +5,12 @@ interface Props {
   radioData: any;
   radioValue: string;
   setRadioValue: React.Dispatch<React.SetStateAction<string>>;
+  withBorder: boolean
 }
 
-const OptionalBtn: React.FC<Props> = ({radioData, radioValue, setRadioValue}) => {
+const OptionalBtn: React.FC<Props> = ({radioData, radioValue, setRadioValue, withBorder}) => {
   return (
-    <div className={`${styles.withBorder} ${styles.optionGroup}`}>
+    <div className={`${withBorder && styles.withBorder} ${styles.optionGroup}`}>
       {radioData.map((btn:any) => (
         <Fragment key={btn.id}>
           <input

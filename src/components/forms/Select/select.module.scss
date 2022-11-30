@@ -30,7 +30,11 @@
     }
 
     .show>.btn-success.dropdown-toggle {
-        background-color: var(--TSbgColor);
-        border-color: var(--TSboxBorderColor);
+        background-color: var(--TSbgColor) !important;
+        border-color: var(--TSboxBorderColor) !important;
+    }
+
+    .show {
+        // width: 100% !important;
     }
 }

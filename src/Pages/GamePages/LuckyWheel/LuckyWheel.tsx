@@ -1,35 +1,60 @@
-import {useState} from 'react';
+import { useState } from "react";
 
+import { wheelRisk, wheel, wheelSegments } from "../../../constants/const";
+
+import OptionalBtn from "../../../components/forms/OptionalBtn/OptionalBtn";
+import Select from "../../../components/forms/Select/Select";
 import Roulette from "./Roulette/Roulette";
 
-
 import styles from "./luckyWheel.module.scss";
-import OptionalBtn from "../../../components/forms/OptionalBtn/OptionalBtn";
-import { wheelRisk, wheel, wheelSegments } from "../../../constants/const";
-import Select from '../../../components/forms/Select/Select';
-// import RouletteClip from './Roulette/RouletteClip';
 
 const LuckyWheel = () => {
-
   const [wheelType, setWheelType] = useState("manual");
-  const [betAmount, setBetAmount] = useState('');
-  const [risk, setRisk]: any = useState('Low');
-  const [segments, setSegments]: any = useState('8');
+  const [betAmount, setBetAmount]: any = useState("");
+  const [risk, setRisk] = useState("Low");
+  const [segments, setSegments] = useState("8");
   const [isActive, setIsActive] = useState(false);
+  const [rotateCount, setRotateCount] = useState(0);
+
+  const [apiResponse, setApiResponse] = useState("");
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch(
+        `http://www.randomnumberapi.com/api/v1.0/random?min=0&max=${
+          Number(segments) - 1
+        }&count=1`
+      );
+      const result = await response.json();
+
+      if (!response) {
+        throw new Error(`Error! status: ${response}`);
+      }
+
+      setApiResponse(result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  setTimeout(() => setIsActive(false), 3000);
 
   return (
     <div className={styles.wheel}>
       <div className={styles.options}>
         <div className={`${styles.optionBox} with-border`}>
-          <OptionalBtn radioData={wheel} radioValue={wheelType} setRadioValue={setWheelType} />
-          <label className={`ts-label ${styles.label}`}>
-            Bet amount
-          </label>
+          <OptionalBtn
+            setRadioValue={setWheelType}
+            radioValue={wheelType}
+            withBorder={false}
+            radioData={wheel}
+          />
+          <label className={`ts-label ${styles.label}`}>Bet amount</label>
           <div className="amount-box">
             <div className="amount-input ts-input-with-icon">
-              <div className='ts-input-wrapper'>
+              <div className="ts-input-wrapper">
                 <input
-                onChange={(e) => setBetAmount(e.target.value)}
+                  onChange={(e) => setBetAmount(e.target.value)}
                   className="ts-input "
                   pattern="[0-9]+"
                   placeholder="0"
@@ -64,26 +89,36 @@ const LuckyWheel = () => {
               </div>
             </div>
             <div className="amount-actions">
-              <span>½</span>
-              <span>2x</span>
+              <span onClick={() => setBetAmount(`${betAmount / 2}`)}>½</span>
+              <span onClick={() => setBetAmount(`${betAmount * 2}`)}>2x</span>
             </div>
           </div>
           <Select data={wheelRisk} state={risk} setState={setRisk} />
-          <Select data={wheelSegments} state={segments} setState={setSegments} />
+          <Select
+            data={wheelSegments}
+            state={segments}
+            setState={setSegments}
+          />
         </div>
         <button
           className={`ts-button ts-primary-button large ${styles.wheelBetBtn}`}
-          onClick={() => setIsActive(true)}
+          onClick={() => {
+            setIsActive(true);
+            setRotateCount((prev) => ++prev);
+            handleSubmit();
+          }}
         >
           BET
         </button>
       </div>
-      <Roulette segmentCount={+segments} isActive={isActive}/>
-      {/* <RouletteClip /> */}
+      <Roulette
+        segmentCount={+segments}
+        isActive={isActive}
+        rotateCount={rotateCount}
+        apiResponse={apiResponse}
+      />
     </div>
   );
 };
 
 export default LuckyWheel;
-
-

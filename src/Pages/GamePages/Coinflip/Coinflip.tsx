@@ -63,11 +63,13 @@ const Coinflip = () => {
           radioData={coin}
           radioValue={coinSign}
           setRadioValue={setCoinSign}
+          withBorder={true}
         />
         <OptionalBtn
           radioData={betData}
           radioValue={betCount}
           setRadioValue={setBetCount}
+          withBorder={true}
         />
 
         <RecentPlayers recentPlaysData={recentPlaysCoinflip}/>

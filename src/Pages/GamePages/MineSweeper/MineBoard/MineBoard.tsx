@@ -41,7 +41,11 @@ const MineBoard = () => {
 
   createBoard();
 
-  return <div>MineBoard</div>;
+  return (
+    <div>
+      
+    </div>
+  );
 };
 
 export default MineBoard;

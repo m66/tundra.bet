@@ -1,15 +1,25 @@
+import { memo } from "react";
 import { rouletteBgColors } from "../../../../constants/const";
 
 import styles from "./roulette.module.scss";
 
 interface Props {
-  segmentCount: number,
-  isActive: boolean
+  segmentCount: number;
+  isActive: boolean;
+  rotateCount: number;
+  apiResponse: any;
 }
 
-const Roulette: React.FC<Props> = ({ segmentCount, isActive }) => {
-  let deg: number = 360 / segmentCount;
-  let c = segmentCount === 8 ? 50 : segmentCount === 16 ? 29.3 : 21.2;
+const Roulette: React.FC<Props> = ({
+  segmentCount,
+  isActive,
+  rotateCount,
+  apiResponse
+}) => {
+  const deg: number = 360 / segmentCount;
+  const c = segmentCount === 8 ? 50 : segmentCount === 16 ? 29.3 : 21.2;
+  const deviation = segmentCount === 8 ? 1.5 : segmentCount === 16 ? 2.5 : 3.5;
+  const randomDeg = rotateCount ? Math.floor(Math.random() * deg - deg / 2) : 0;
 
   const arrOfSegments = Array(segmentCount)
     .fill("")
@@ -17,7 +27,7 @@ const Roulette: React.FC<Props> = ({ segmentCount, isActive }) => {
       <div
         key={i}
         style={{
-          transform: `rotate(${i * deg + deg/2}deg)`,
+          transform: `rotate(${i * deg + deviation * deg}deg)`,
           clipPath: `polygon(0 0%, 0 ${c}%, 50% 50%)`,
         }}
         className={`${styles.segment}`}
@@ -29,16 +39,25 @@ const Roulette: React.FC<Props> = ({ segmentCount, isActive }) => {
       </div>
     ));
 
-    const arrCoefficientsItem = Array(segmentCount)
+  const arrCoefficientsItem = Array(segmentCount)
     .fill("")
     .map((_, i) => (
-      <div className={styles.coefficientsItem} style={{background: rouletteBgColors[i]}} key={i}>
+      <div
+        className={`${styles.coefficientsItem} ${
+          apiResponse[0] === i ? styles.winBorder : ""
+        }`}
+        style={{ background: rouletteBgColors[i] }}
+        key={i}
+      >
         500
       </div>
     ));
 
+  const rouletteDevitionFrom0Deg = (segmentCount - apiResponse[0]) * deg;
+  let rotateDeg = rotateCount * 720 + rouletteDevitionFrom0Deg + randomDeg;  
+
   return (
-    <>
+    <div className={styles.rouletteWrapper}>
       <div className={styles.gameBox}>
         <div className={styles.rouletteBox}>
           <svg
@@ -150,7 +169,14 @@ const Roulette: React.FC<Props> = ({ segmentCount, isActive }) => {
               </linearGradient>
             </defs>
           </svg>
-          <div className={`${styles.roulette} ${isActive? styles.rotate : ''}`} >{arrOfSegments}</div>
+          <div
+            className={`${styles.roulette} `}
+            style={{
+              transform: `${isActive && `rotate(${rotateDeg}deg)`}`,
+            }}
+          >
+            {arrOfSegments}
+          </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="237"
@@ -349,11 +375,9 @@ const Roulette: React.FC<Props> = ({ segmentCount, isActive }) => {
           </svg>
         </div>
       </div>
-      <div className={styles.coefficients}>
-        {arrCoefficientsItem}
-      </div>
-    </>
+      <div className={styles.coefficients}>{arrCoefficientsItem}</div>
+    </div>
   );
 };
 
-export default Roulette;
+export default memo(Roulette);
