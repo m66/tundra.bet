@@ -40,8 +40,6 @@ const RPS = () => {
       setRandomCardData({cardType: 'default', isShow: false})
 
     }, 3000);
-
-    console.log(randomComingResult);
   }
 
   return (
