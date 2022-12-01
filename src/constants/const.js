@@ -41,7 +41,7 @@ export const games = {
     {
       title: "Minesweeper",
       imgUrl: "https://tundra.bet/assets/images/mine.svg",
-      isDisable: false,
+      isDisable: true,
       url: "/mine",
     },
   ],
